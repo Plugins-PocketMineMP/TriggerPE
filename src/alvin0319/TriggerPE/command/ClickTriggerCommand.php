@@ -33,12 +33,14 @@ use alvin0319\TriggerPE\triggers\ClickTrigger;
 use alvin0319\TriggerPE\triggers\Trigger;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
+use pocketmine\plugin\Plugin;
 use function implode;
 use function in_array;
 use function trim;
 
-class ClickTriggerCommand extends Command{
+class ClickTriggerCommand extends Command implements PluginIdentifiableCommand{
 
 	public function __construct(){
 		parent::__construct("vtc", "ClickTrigger command");
@@ -101,5 +103,12 @@ class ClickTriggerCommand extends Command{
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * @return TriggerPE
+	 */
+	public function getPlugin() : Plugin{
+		return TriggerPE::getInstance();
 	}
 }

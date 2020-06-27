@@ -32,11 +32,13 @@ use alvin0319\TriggerPE\triggers\CommandTrigger;
 use alvin0319\TriggerPE\triggers\Trigger;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\PluginIdentifiableCommand;
+use pocketmine\plugin\Plugin;
 use function implode;
 use function in_array;
 use function trim;
 
-class CommandTriggerCommand extends Command{
+class CommandTriggerCommand extends Command implements PluginIdentifiableCommand{
 
 	public function __construct(){
 		parent::__construct("vtcmd", "CommandTrigger comamnd");
@@ -108,5 +110,12 @@ class CommandTriggerCommand extends Command{
 				TriggerPE::message($sender, "/vtcmd list");
 		}
 		return true;
+	}
+
+	/**
+	 * @return TriggerPE
+	 */
+	public function getPlugin() : Plugin{
+		return TriggerPE::getInstance();
 	}
 }

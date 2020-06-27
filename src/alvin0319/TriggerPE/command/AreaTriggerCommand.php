@@ -33,12 +33,14 @@ use alvin0319\TriggerPE\triggers\AreaTrigger;
 use alvin0319\TriggerPE\triggers\Trigger;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
+use pocketmine\command\PluginIdentifiableCommand;
 use pocketmine\Player;
+use pocketmine\plugin\Plugin;
 use function implode;
 use function in_array;
 use function trim;
 
-class AreaTriggerCommand extends Command{
+class AreaTriggerCommand extends Command implements PluginIdentifiableCommand{
 
 	public function __construct(){
 		parent::__construct("vta", "AreaTrigger command");
@@ -101,5 +103,12 @@ class AreaTriggerCommand extends Command{
 			}
 		}
 		return true;
+	}
+
+	/**
+	 * @return TriggerPE
+	 */
+	public function getPlugin() : Plugin{
+		return TriggerPE::getInstance();
 	}
 }
