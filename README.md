@@ -33,7 +33,7 @@ A Trigger plugin for PocketMine-MP ported from [VariableTriggers](https://github
 |---|---|
 |triggerpe.command.vtc|op|
 |triggerpe.command.vta|op|
-|triggerpe.commandvtcmd|op|
+|triggerpe.command.vtcmd|op|
 
 # API
 
